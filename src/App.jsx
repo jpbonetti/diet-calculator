@@ -31,7 +31,7 @@ export default class App extends Component {
 
   resetTBMInformations() {
     document.getElementById("form").reset(); 
-    
+
     this.tmbInformations.age = undefined;
     this.tmbInformations.weight = undefined;
     this.tmbInformations.height = undefined;
@@ -73,16 +73,16 @@ export default class App extends Component {
                 <h6>Entre com as informações abaixo:</h6>
               </p>
 
-              <input type="input" name="age" placeholder="Idade" value={this.tmbInformations.age} onChange={this.handleChange}/>
-              <input type="input" name="weight" placeholder="Peso(Kg)" value={this.tmbInformations.weight} onChange={this.handleChange}/>
-              <input type="input" name="height" placeholder="Altura(cm)" value={this.tmbInformations.height} onChange={this.handleChange}/>
+              <input className="tmb-input-informations" type="input" name="age" placeholder="Idade" value={this.tmbInformations.age} onChange={this.handleChange}/>
+              <input className="tmb-input-informations" type="input" name="weight" placeholder="Peso(Kg)" value={this.tmbInformations.weight} onChange={this.handleChange}/>
+              <input className="tmb-input-informations" type="input" name="height" placeholder="Altura(cm)" value={this.tmbInformations.height} onChange={this.handleChange}/>
 
               <div className="group-input-gender" onChange={this.setGender.bind(this)}>
                 <input type="radio" checked="true" value="male" name="gender"/> <span className="span-input-gender">Masculino</span>
                 <input type="radio" value="female" name="gender"/> <span className="span-input-gender">Feminino</span>
               </div>
       
-              <input type="button" value="Calcular" onClick={this.calculateTMB.bind(this)}/>
+              <input className="calculate-button" type="button" value="Calcular" onClick={this.calculateTMB.bind(this)}/>
             </header>
           </div>
         </form>
