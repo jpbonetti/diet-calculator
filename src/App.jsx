@@ -32,9 +32,11 @@ export default class App extends Component {
   resetTBMInformations() {
     document.getElementById("form").reset(); 
 
+    this.tmbInformations.gender = "male";
     this.tmbInformations.age = undefined;
     this.tmbInformations.weight = undefined;
     this.tmbInformations.height = undefined;
+    this.tmbInformations.result = 0;
   }
 
   calculateTMB() {
