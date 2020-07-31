@@ -28,41 +28,6 @@
   color: #61dafb;
 }
 
-.span-input-gender {
-  font-size: large;
-}
-
-.group-input-gender {
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-
-.tmb-input-informations {
-  width: 20%;
-  height: 25px;
-  border-radius: 5px;
-}
-
-.tmb-input-informations:focus {
-  outline-color: #F37361;
-}
-
-.calculate-button {
-  width: 20%;
-  height: 25px;
-  border-radius: 5px;
-}
-
-.calculate-button:focus {
-  background: #F37361;
-  outline-color: #282C34;
-}
-
-.calculate-button:hover {
-  background: #F37361;
-  outline-color: #282C34;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
