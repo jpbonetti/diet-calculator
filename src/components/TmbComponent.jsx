@@ -28,11 +28,11 @@ export default class TmbComponent extends Component {
   }
 
   handleChangeRadioButtons(e) {
+    debugger;
     this.tbmbnformations.gender = e.target.value;
   }
 
   calculate() {
-    debugger;
     if (this.tbmbnformations.gender === undefined || this.tbmbnformations.gender === 'male') {
       this.tbmbnformations.result = 66 + (13.8 * this.tbmbnformations.weight) + (5 * this.tbmbnformations.height) - (6.8 * this.tbmbnformations.age);
     } else {
@@ -83,15 +83,25 @@ export default class TmbComponent extends Component {
           />
         </div>
         <div>
-            <FormLabel component="legend">Sexo</FormLabel>
-            <RadioGroup defaultValue="male" aria-label="gender" name="gender1" value={this.tbmbnformations.gender} onChange={this.handleChangeRadioButtons.bind(this)}>
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-              <FormControlLabel value="female" control={<Radio />} label="Female" />
+            <FormLabel 
+              className="form-label-gender"
+              component="legend">
+              Sexo
+            </FormLabel>
+            <RadioGroup 
+              className="radio-group-gender"
+              defaultValue="male" 
+              aria-label="gender" 
+              name="gender1" 
+              value={this.tbmbnformations.gender} 
+              onChange={this.handleChangeRadioButtons.bind(this)}>
+                <FormControlLabel value="male" control={<Radio className="radio-button-gender-color"/>} label="Masculino" />
+                <FormControlLabel value="female" control={<Radio className="radio-button-gender-color"/>} label="Feminino" />
             </RadioGroup>
         </div>
         <div>
           <Button 
-            className="Button" 
+            className="button-calculate" 
             variant="outlined" 
             color="secondary" 
             onClick={this.calculate}>

@@ -1,7 +1,29 @@
 .tmb-text-field {
   background-color: white;
+  width: 25vw;
 }
 
 .text-field-margin {
   margin: 5px;
+}
+
+.radio-button-gender-color {
+  color: #F37361 !important;
+}
+
+.button-calculate {
+  border-color: #F37361 !important;
+  color: #F37361 !important;
+  width: 25vw;
+  margin-top: 15px !important;
+}
+
+.radio-group-gender {
+  margin-left: 2px !important;
+}
+
+.form-label-gender {
+  font-size: 20px !important;
+  margin-top: 20px;
+  color: #FFFFFF !important;
 }
