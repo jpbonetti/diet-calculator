@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
@@ -16,18 +16,11 @@ import './TmbComponent.css';
 
 export default class TmbComponent extends Component {
 
-  tmbInformations = {
-    age: undefined,
-    weight: undefined,
-    height: undefined,
-    gender: undefined,
-    result: 0
-  }
-
   constructor(props) {
     super(props);
 
     this.state = {
+      tmbInformations: props.dietInformations.tmbInformations,
       snackBar: {
         open: false,
         transition: Fade
@@ -41,11 +34,11 @@ export default class TmbComponent extends Component {
   }
 
   handleChangeTextFields(e) {
-    this.tmbInformations[e.target.name] = parseFloat(e.target.value);
+    this.state.tmbInformations[e.target.name] = parseFloat(e.target.value);
   }
 
   handleChangeRadioButtons(e) {
-    this.tmbInformations.gender = e.target.value;
+    this.state.tmbInformations.gender = e.target.value;
   }
 
   handleSnackBarOpen(newState) {
@@ -65,7 +58,7 @@ export default class TmbComponent extends Component {
   }
 
   validateMandatoryTMBInformations() {
-    if (this.tmbInformations.age && this.tmbInformations.weight && this.tmbInformations.height) {
+    if (this.state.tmbInformations.age && this.state.tmbInformations.weight && this.state.tmbInformations.height) {
       return true;
     }
 
@@ -78,15 +71,17 @@ export default class TmbComponent extends Component {
       return;
     }
 
-    if (this.tmbInformations.gender === undefined || this.tmbInformations.gender === 'male') {
-      this.tmbInformations.result = parseFloat((66 + (13.8 * this.tmbInformations.weight) 
-        + (5 * this.tmbInformations.height) - (6.8 * this.tmbInformations.age)).toFixed(2));
+    if (this.state.tmbInformations.gender === undefined || this.state.tmbInformations.gender === 'male') {
+      this.state.tmbInformations.result = parseFloat((66 + (13.8 * this.state.tmbInformations.weight) 
+        + (5 * this.state.tmbInformations.height) - (6.8 * this.state.tmbInformations.age)).toFixed(2));
     } else {
-      this.tmbInformations.result = parseFloat((655 + (9.6 * this.tmbInformations.weight) 
-        + (1.8 * this.tmbInformations.height) - (4.7 * this.tmbInformations.age)).toFixed(2));
+      this.state.tmbInformations.result = parseFloat((655 + (9.6 * this.state.tmbInformations.weight) 
+        + (1.8 * this.state.tmbInformations.height) - (4.7 * this.state.tmbInformations.age)).toFixed(2));
     }
-
+    
     this.handleDialogOpen();
+    
+    this.props.handleChangeDietInformations(this.state.tmbInformations);
   }
 
   render() {
@@ -101,7 +96,7 @@ export default class TmbComponent extends Component {
               type="number" 
               label="Idade" 
               variant="filled" 
-              value={this.tmbInformations.age}
+              value={this.state.tmbInformations.age}
               onChange={this.handleChangeTextFields.bind(this)}
             />
           </div>
@@ -114,7 +109,7 @@ export default class TmbComponent extends Component {
               type="number" 
               label="Peso(Kg)" 
               variant="filled" 
-              value={this.tmbInformations.weight}
+              value={this.state.tmbInformations.weight}
               onChange={this.handleChangeTextFields.bind(this)}
             />
           </div>
@@ -127,7 +122,7 @@ export default class TmbComponent extends Component {
               type="number" 
               label="Altura(cm)" 
               variant="filled" 
-              value={this.tmbInformations.height}
+              value={this.state.tmbInformations.height}
               onChange={this.handleChangeTextFields.bind(this)}
             />
           </div>
@@ -142,10 +137,16 @@ export default class TmbComponent extends Component {
             defaultValue="male" 
             aria-label="gender" 
             name="gender1" 
-            value={this.tmbInformations.gender} 
+            value={this.state.tmbInformations.gender} 
             onChange={this.handleChangeRadioButtons.bind(this)}>
-              <FormControlLabel value="male" control={<Radio className="radio-button-gender-color"/>} label="Masculino" />
-              <FormControlLabel value="female" control={<Radio className="radio-button-gender-color"/>} label="Feminino" />
+              <FormControlLabel 
+                value="male" 
+                control={<Radio className="radio-button-gender-color"/>} 
+                label="Masculino" />
+              <FormControlLabel 
+                value="female" 
+                control={<Radio className="radio-button-gender-color"/>} 
+                label="Feminino" />
           </RadioGroup>
 
           <Button 
@@ -172,7 +173,7 @@ export default class TmbComponent extends Component {
               <DialogTitle id="alert-dialog-title">{"Sua taxa de metabolismo basal(TMB) é:"}</DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description">
-                  {this.tmbInformations.result} kcal
+                  {this.state.tmbInformations.result} kcal
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
