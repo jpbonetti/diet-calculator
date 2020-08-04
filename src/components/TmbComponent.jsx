@@ -16,7 +16,7 @@ import './TmbComponent.css';
 
 export default class TmbComponent extends Component {
 
-  tbmbnformations = {
+  tmbInformations = {
     age: undefined,
     weight: undefined,
     height: undefined,
@@ -41,11 +41,11 @@ export default class TmbComponent extends Component {
   }
 
   handleChangeTextFields(e) {
-    this.tbmbnformations[e.target.name] = parseFloat(e.target.value);
+    this.tmbInformations[e.target.name] = parseFloat(e.target.value);
   }
 
   handleChangeRadioButtons(e) {
-    this.tbmbnformations.gender = e.target.value;
+    this.tmbInformations.gender = e.target.value;
   }
 
   handleSnackBarOpen(newState) {
@@ -65,7 +65,7 @@ export default class TmbComponent extends Component {
   }
 
   validateMandatoryTMBInformations() {
-    if (this.tbmbnformations.age && this.tbmbnformations.weight && this.tbmbnformations.height) {
+    if (this.tmbInformations.age && this.tmbInformations.weight && this.tmbInformations.height) {
       return true;
     }
 
@@ -78,10 +78,12 @@ export default class TmbComponent extends Component {
       return;
     }
 
-    if (this.tbmbnformations.gender === undefined || this.tbmbnformations.gender === 'male') {
-      this.tbmbnformations.result = 66 + (13.8 * this.tbmbnformations.weight) + (5 * this.tbmbnformations.height) - (6.8 * this.tbmbnformations.age);
+    if (this.tmbInformations.gender === undefined || this.tmbInformations.gender === 'male') {
+      this.tmbInformations.result = parseFloat((66 + (13.8 * this.tmbInformations.weight) 
+        + (5 * this.tmbInformations.height) - (6.8 * this.tmbInformations.age)).toFixed(2));
     } else {
-      this.tbmbnformations.result = 655 + (9.6 * this.tbmbnformations.weight) + (1.8 * this.tbmbnformations.height) - (4.7 * this.tbmbnformations.age);
+      this.tmbInformations.result = parseFloat((655 + (9.6 * this.tmbInformations.weight) 
+        + (1.8 * this.tmbInformations.height) - (4.7 * this.tmbInformations.age)).toFixed(2));
     }
 
     this.handleDialogOpen();
@@ -99,7 +101,7 @@ export default class TmbComponent extends Component {
               type="number" 
               label="Idade" 
               variant="filled" 
-              value={this.tbmbnformations.age}
+              value={this.tmbInformations.age}
               onChange={this.handleChangeTextFields.bind(this)}
             />
           </div>
@@ -112,7 +114,7 @@ export default class TmbComponent extends Component {
               type="number" 
               label="Peso(Kg)" 
               variant="filled" 
-              value={this.tbmbnformations.weight}
+              value={this.tmbInformations.weight}
               onChange={this.handleChangeTextFields.bind(this)}
             />
           </div>
@@ -125,7 +127,7 @@ export default class TmbComponent extends Component {
               type="number" 
               label="Altura(cm)" 
               variant="filled" 
-              value={this.tbmbnformations.height}
+              value={this.tmbInformations.height}
               onChange={this.handleChangeTextFields.bind(this)}
             />
           </div>
@@ -140,7 +142,7 @@ export default class TmbComponent extends Component {
             defaultValue="male" 
             aria-label="gender" 
             name="gender1" 
-            value={this.tbmbnformations.gender} 
+            value={this.tmbInformations.gender} 
             onChange={this.handleChangeRadioButtons.bind(this)}>
               <FormControlLabel value="male" control={<Radio className="radio-button-gender-color"/>} label="Masculino" />
               <FormControlLabel value="female" control={<Radio className="radio-button-gender-color"/>} label="Feminino" />
@@ -170,7 +172,7 @@ export default class TmbComponent extends Component {
               <DialogTitle id="alert-dialog-title">{"Sua taxa de metabolismo basal(TMB) é:"}</DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description">
-                  {this.tbmbnformations.result} kcal
+                  {this.tmbInformations.result} kcal
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
