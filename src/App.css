@@ -3,6 +3,7 @@
 }
 
 .App-logo {
+  margin-top: 3vw;
   height: 27vmin;
   pointer-events: none;
 }
@@ -26,6 +27,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.descryption-header {
+  font-size: smaller;
 }
 
 @keyframes App-logo-spin {

@@ -7,11 +7,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import './TmbComponent.css';
 
 export default class TmbComponent extends Component {
@@ -24,9 +19,6 @@ export default class TmbComponent extends Component {
       snackBar: {
         open: false,
         transition: Fade
-      },
-      dialog: {
-        open: false
       }
     }
 
@@ -51,10 +43,6 @@ export default class TmbComponent extends Component {
 
   handleDialogOpen() {
     this.setState({ dialog: { open: true }});
-  }
-
-  handleDialogClose() {
-    this.setState({ dialog: { open: false }});
   }
 
   validateMandatoryTMBInformations() {
@@ -164,24 +152,6 @@ export default class TmbComponent extends Component {
             message="Preencha os campos obrigatórios"
             key={this.state.snackBar.transition.name}
           />
-
-          <Dialog
-            open={this.state.dialog.open}
-            onClose={this.handleDialogClose.bind(this)}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description">
-              <DialogTitle id="alert-dialog-title">{"Sua taxa de metabolismo basal(TMB) é:"}</DialogTitle>
-              <DialogContent>
-                <DialogContentText id="alert-dialog-description">
-                  {this.state.tmbInformations.result} kcal
-                </DialogContentText>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={this.handleDialogClose.bind(this)} color="primary" autoFocus>
-                  OK
-                </Button>
-              </DialogActions>
-          </Dialog>
         </form>
       </React.Fragment>
     )};

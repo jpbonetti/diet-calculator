@@ -13,7 +13,7 @@ export default class ExerciseComponent extends Component {
   render() {
 		return (
 			<React.Fragment>
-        METABOLISMO BASAL {this.state.tmbInformations.result} Kcal
+        Perguntas vida ativa
       </React.Fragment>
     )};
 }

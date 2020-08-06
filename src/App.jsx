@@ -1,8 +1,9 @@
 import React from 'react';
 import TmbComponent from './components/TmbComponent';
-import ExerciseComponent from './components/Exercise'
+import ExerciseComponent from './components/Exercise';
 import logo from './images/logo.svg';
 import './App.css';
+import InformationsBarGridComponent from './components/InformationsBarGrid';
 
 export default function App() {
   const [dietInformations, setDietInformations] = React.useState({
@@ -26,13 +27,17 @@ export default function App() {
               <img src={logo} className="App-logo" alt="logo" />
               <p>
                 <h2>DIET CALCULATOR</h2>
-                <h6>Entre com as informações abaixo:</h6>
+                <span className="descryption-header">Entre com as informações abaixo:</span>
               </p>
 
               <TmbComponent 
                 dietInformations={dietInformations} 
                 handleChangeDietInformations={handleChangeDietInformations}>
               </TmbComponent>
+
+              <InformationsBarGridComponent
+                dietInformations={dietInformations}>
+              </InformationsBarGridComponent>
 
               <ExerciseComponent 
                 dietInformations={dietInformations}>

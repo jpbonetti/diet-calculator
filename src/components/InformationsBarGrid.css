@@ -1,0 +1,11 @@
+.paper-tmb-informations {
+    width: 100vw !important;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: #F37361 !important;
+    color: #282C34 !important;
+    opacity: 0.9;
+    border-radius: 0px;
+    border-bottom-color: #282C34;
+}
