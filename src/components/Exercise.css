@@ -1,0 +1,21 @@
+.active-button {
+    background-color: white !important;
+    color: tomato !important;
+}
+
+.deactive-button {
+    background-color: #F37361 !important;
+    color: white !important;
+}
+
+.group-buttons {
+    margin-top: 10px;
+}
+
+.descryption-header {
+    font-size: smaller;
+}
+
+.teste {
+    height: 100vh;
+}

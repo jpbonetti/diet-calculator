@@ -12,12 +12,13 @@ export default function App() {
       weight: undefined,
       height: undefined,
       gender: undefined,
-      result: 0
+      tmbResult: 0,
+      exerciseResult: 0
     }
   });
 
-  const handleChangeDietInformations = (newInformations) => {
-    setDietInformations(newInformations);
+  const handleChangeTmbInformations = (newInformations) => {
+    setDietInformations({...dietInformations, tmbInformations: newInformations});
   };
 
   return (
@@ -32,7 +33,7 @@ export default function App() {
 
               <TmbComponent 
                 dietInformations={dietInformations} 
-                handleChangeDietInformations={handleChangeDietInformations}>
+                handleChangeTmbInformations={handleChangeTmbInformations}>
               </TmbComponent>
 
               <InformationsBarGridComponent
@@ -40,7 +41,8 @@ export default function App() {
               </InformationsBarGridComponent>
 
               <ExerciseComponent 
-                dietInformations={dietInformations}>
+                dietInformations={dietInformations}
+                handleChangeTmbInformations={handleChangeTmbInformations}>
               </ExerciseComponent>
             </header>
           </div>

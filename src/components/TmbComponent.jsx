@@ -41,10 +41,6 @@ export default class TmbComponent extends Component {
     this.setState({ snackBar: { open: false, transition: Fade }});
   }
 
-  handleDialogOpen() {
-    this.setState({ dialog: { open: true }});
-  }
-
   validateMandatoryTMBInformations() {
     if (this.state.tmbInformations.age && this.state.tmbInformations.weight && this.state.tmbInformations.height) {
       return true;
@@ -60,16 +56,14 @@ export default class TmbComponent extends Component {
     }
 
     if (this.state.tmbInformations.gender === undefined || this.state.tmbInformations.gender === 'male') {
-      this.state.tmbInformations.result = parseFloat((66.5 + (13.8 * this.state.tmbInformations.weight) 
+      this.state.tmbInformations.tmbResult = parseFloat((66.5 + (13.8 * this.state.tmbInformations.weight) 
         + (5 * this.state.tmbInformations.height) - (6.8 * this.state.tmbInformations.age)).toFixed(2));
     } else {
-      this.state.tmbInformations.result = parseFloat((655.1 + (9.5 * this.state.tmbInformations.weight) 
+      this.state.tmbInformations.tmbResult = parseFloat((655.1 + (9.5 * this.state.tmbInformations.weight) 
         + (1.8 * this.state.tmbInformations.height) - (4.7 * this.state.tmbInformations.age)).toFixed(2));
     }
 
-    this.handleDialogOpen();
-    
-    this.props.handleChangeDietInformations(this.state.tmbInformations);
+    this.props.handleChangeTmbInformations(this.state.tmbInformations);
   }
 
   render() {
