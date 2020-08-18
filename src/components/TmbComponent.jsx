@@ -63,6 +63,8 @@ export default class TmbComponent extends Component {
         + (1.8 * this.state.tmbInformations.height) - (4.7 * this.state.tmbInformations.age)).toFixed(2));
     }
 
+    var tmb = this.state.tmbInformations.tmbResult;
+    this.state.tmbInformations.exerciseResult = ((tmb * 1.2) - tmb);
     this.props.handleChangeTmbInformations(this.state.tmbInformations);
   }
 

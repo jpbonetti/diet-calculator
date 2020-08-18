@@ -16,9 +16,13 @@ export default function App() {
       exerciseResult: 0
     }
   });
+  
+  const exerciseQuestionsComponent = React.createRef();
 
   const handleChangeTmbInformations = (newInformations) => {
     setDietInformations({...dietInformations, tmbInformations: newInformations});
+
+    exerciseQuestionsComponent.current.scrollToExerciseQuestion();
   };
 
   return (
@@ -41,6 +45,7 @@ export default function App() {
               </InformationsBarGridComponent>
 
               <ExerciseComponent 
+                ref={exerciseQuestionsComponent}
                 dietInformations={dietInformations}
                 handleChangeTmbInformations={handleChangeTmbInformations}>
               </ExerciseComponent>
