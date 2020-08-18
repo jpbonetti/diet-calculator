@@ -38,16 +38,18 @@ export default class ExerciseComponent extends Component {
     this.state.buttons[event.target.outerText.replace(" ", "").toLowerCase()].active = true;
     this.setState(this.state);
 
-    if (this.state.buttons.nenhum.active) {
-      this.state.tmbInformations.exerciseResult = tmb * 1.2;
-    } else if (this.state.buttons.pouco.active) {
-      this.state.tmbInformations.exerciseResult = tmb * 1.375;
-    } else if (this.state.buttons.moderado.active) {
-      this.state.tmbInformations.exerciseResult = tmb * 1.55;
-    } else if (this.state.buttons.intenso.active) {
-      this.state.tmbInformations.exerciseResult = tmb * 1.725;
-    } else if (this.state.buttons.muitointenso.active) {
-      this.state.tmbInformations.exerciseResult = tmb * 1.9;
+    if (tmb > 0) {
+      if (this.state.buttons.nenhum.active) {
+        this.state.tmbInformations.exerciseResult = ((tmb * 1.2) - tmb);
+      } else if (this.state.buttons.pouco.active) {
+        this.state.tmbInformations.exerciseResult = ((tmb * 1.375) - tmb);
+      } else if (this.state.buttons.moderado.active) {
+        this.state.tmbInformations.exerciseResult = ((tmb * 1.55) - tmb);
+      } else if (this.state.buttons.intenso.active) {
+        this.state.tmbInformations.exerciseResult = ((tmb * 1.725) - tmb);
+      } else if (this.state.buttons.muitointenso.active) {
+        this.state.tmbInformations.exerciseResult = ((tmb * 1.9) - tmb);
+      }
     }
 
     this.props.handleChangeTmbInformations(this.state.tmbInformations);
@@ -63,29 +65,29 @@ export default class ExerciseComponent extends Component {
   render() {
 		return (
 			<React.Fragment>
-        <div className="teste">
+        <div className="panel-size">
           <span className="descryption-header">Qual é o seu nível de atividade diária?</span>
 
           <div className="group-buttons">
             <ButtonGroup disableElevation variant="contained" color="primary">
               <Button 
-                className={this.state.buttons['nenhum'].active ? "active-button" : "deactive-button"}
+                className={this.state.buttons['nenhum'].active ? "teste-botao active-button" : "teste-botao deactive-button"}
                 onClick={this.handleClick.bind(this)}>Nenhum
               </Button>
               <Button 
-                className={this.state.buttons['pouco'].active ? "active-button" : "deactive-button"} 
+                className={this.state.buttons['pouco'].active ? "teste-botao active-button" : "teste-botao deactive-button"} 
                 onClick={this.handleClick.bind(this)}>Pouco
               </Button>
               <Button 
-                className={this.state.buttons['moderado'].active ? "active-button" : "deactive-button"}
+                className={this.state.buttons['moderado'].active ? "teste-botao active-button" : "teste-botao deactive-button"}
                 onClick={this.handleClick.bind(this)}>Moderado
               </Button>
               <Button 
-                className={this.state.buttons['intenso'].active ? "active-button" : "deactive-button"}
+                className={this.state.buttons['intenso'].active ? "teste-botao active-button" : "teste-botao deactive-button"}
                 onClick={this.handleClick.bind(this)}>Intenso
               </Button>
               <Button 
-                className={this.state.buttons['muitointenso'].active ? "active-button" : "deactive-button"}
+                className={this.state.buttons['muitointenso'].active ? "teste-botao active-button" : " teste-botao deactive-button"}
                 onClick={this.handleClick.bind(this)}>Muito Intenso
               </Button>
             </ButtonGroup>

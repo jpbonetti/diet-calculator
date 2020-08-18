@@ -16,6 +16,11 @@
     font-size: smaller;
 }
 
-.teste {
-    height: 100vh;
+.panel-size {
+    margin-top: 50vh;
+    height: 50vh;
+}
+
+.teste-botao {
+    width: 20vh;
 }
