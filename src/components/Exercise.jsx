@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 import './Exercise.css';
 
 export default class ExerciseComponent extends Component {
@@ -96,6 +97,23 @@ export default class ExerciseComponent extends Component {
                 onClick={this.handleClick.bind(this)}>Muito Intenso
               </Button>
             </ButtonGroup>
+          </div>
+          <div className="teste-panel">
+            <Paper 
+              elevation={0}
+              className="teste">Pouco ou nenhum exercício</Paper>
+            <Paper 
+              elevation={0}
+              className="teste">1-3 dias <br></br> por semana</Paper>
+            <Paper 
+              elevation={0}
+              className="teste">3-5 dias <br></br> por semana</Paper>
+            <Paper 
+              elevation={0} 
+              className="teste">6-7 dias <br></br> por semana</Paper>
+            <Paper 
+              elevation={0}
+              className="teste">2x por dia ou exercício de elevada intensidade e duração</Paper>
           </div>
         </div>
       </React.Fragment>

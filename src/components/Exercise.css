@@ -9,18 +9,32 @@
 }
 
 .group-buttons {
-    margin-top: 10px;
+    margin-top: 5vh;
 }
 
 .descryption-header {
-    font-size: smaller;
+    font-size: x-large;
 }
 
 .panel-size {
-    margin-top: 50vh;
-    height: 50vh;
+    margin-top: 30vh;
+    height: 70vh;
 }
 
 .question-button {
     width: 20vh;
+    border-color: #ffffff !important;
+}
+
+.teste {
+    background-color: #282C34 !important;
+    color: #ffffff !important;
+    font-size: large;
+    margin-top: 10px;
+    width: 20vh;
+    height: 12vh;
+}
+
+.teste-panel {
+    display: flex;
 }
