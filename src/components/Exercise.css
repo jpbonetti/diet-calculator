@@ -26,7 +26,7 @@
     border-color: #ffffff !important;
 }
 
-.teste {
+.question-descryption {
     background-color: #282C34 !important;
     color: #ffffff !important;
     font-size: large;
@@ -35,6 +35,6 @@
     height: 12vh;
 }
 
-.teste-panel {
+.informations-panel {
     display: flex;
 }

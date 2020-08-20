@@ -98,22 +98,22 @@ export default class ExerciseComponent extends Component {
               </Button>
             </ButtonGroup>
           </div>
-          <div className="teste-panel">
+          <div className="informations-panel">
             <Paper 
               elevation={0}
-              className="teste">Pouco ou nenhum exercício</Paper>
+              className="question-descryption">Pouco ou nenhum exercício</Paper>
             <Paper 
               elevation={0}
-              className="teste">1-3 dias <br></br> por semana</Paper>
+              className="question-descryption">1-3 dias <br></br> por semana</Paper>
             <Paper 
               elevation={0}
-              className="teste">3-5 dias <br></br> por semana</Paper>
+              className="question-descryption">3-5 dias <br></br> por semana</Paper>
             <Paper 
               elevation={0} 
-              className="teste">6-7 dias <br></br> por semana</Paper>
+              className="question-descryption">6-7 dias <br></br> por semana</Paper>
             <Paper 
               elevation={0}
-              className="teste">2x por dia ou exercício de elevada intensidade e duração</Paper>
+              className="question-descryption">2x por dia ou exercício de elevada intensidade e duração</Paper>
           </div>
         </div>
       </React.Fragment>
