@@ -54,6 +54,7 @@ export default class ExerciseComponent extends Component {
     }
 
     this.props.handleChangeTmbInformations(this.state.tmbInformations);
+    this.props.scrollToResultCalculate();
   }
 
   resetAllStateButtons() {
@@ -65,13 +66,15 @@ export default class ExerciseComponent extends Component {
 
   scrollToExerciseQuestion() {
     var scrollButtonsGroup = document.getElementById('exercise-buttons-group').offsetTop;
+    scrollButtonsGroup = scrollButtonsGroup - (scrollButtonsGroup * 0.3);
+    
     window.scrollTo({ top: scrollButtonsGroup, behavior: 'smooth'});
   }
 
   render() {
 		return (
 			<React.Fragment>
-        <div className="panel-size">
+        <div className="exercise-panel-size">
           <span className="descryption-header">Qual é o seu nível de atividade diária?</span>
 
           <div className="group-buttons">

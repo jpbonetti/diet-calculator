@@ -16,9 +16,9 @@
     font-size: x-large;
 }
 
-.panel-size {
-    margin-top: 30vh;
-    height: 70vh;
+.exercise-panel-size {
+    margin-top: 40vh;
+    height: 60vh;
 }
 
 .question-button {

@@ -4,6 +4,7 @@ import ExerciseComponent from './components/Exercise';
 import logo from './images/logo.svg';
 import './App.css';
 import InformationsBarGridComponent from './components/InformationsBarGrid';
+import ResultCalculateComponent from './components/ResultCalculate';
 
 export default function App() {
   const [dietInformations, setDietInformations] = React.useState({
@@ -18,12 +19,19 @@ export default function App() {
   });
   
   const exerciseQuestionsComponent = React.createRef();
+  const resultCalculateComponent = React.createRef();
 
   const handleChangeTmbInformations = (newInformations) => {
     setDietInformations({...dietInformations, tmbInformations: newInformations});
-
-    exerciseQuestionsComponent.current.scrollToExerciseQuestion();
   };
+
+  const scrollToExerciseQuestions = () => {
+    exerciseQuestionsComponent.current.scrollToExerciseQuestion();
+  }
+
+  const scrollToResultCalculate = () => {
+    resultCalculateComponent.current.scrollToResultCalculate();
+  }
 
   return (
     <form noValidate autoComplete="off">
@@ -37,7 +45,8 @@ export default function App() {
 
               <TmbComponent 
                 dietInformations={dietInformations} 
-                handleChangeTmbInformations={handleChangeTmbInformations}>
+                handleChangeTmbInformations={handleChangeTmbInformations}
+                scrollToExerciseQuestions={scrollToExerciseQuestions}>
               </TmbComponent>
 
               <InformationsBarGridComponent
@@ -47,8 +56,14 @@ export default function App() {
               <ExerciseComponent 
                 ref={exerciseQuestionsComponent}
                 dietInformations={dietInformations}
+                scrollToResultCalculate={scrollToResultCalculate}
                 handleChangeTmbInformations={handleChangeTmbInformations}>
               </ExerciseComponent>
+
+              <ResultCalculateComponent
+                ref={resultCalculateComponent}
+                dietInformations={dietInformations}>
+              </ResultCalculateComponent>
             </header>
           </div>
     </form>

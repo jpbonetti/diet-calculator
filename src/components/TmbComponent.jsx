@@ -66,6 +66,7 @@ export default class TmbComponent extends Component {
     var tmb = this.state.tmbInformations.tmbResult;
     this.state.tmbInformations.exerciseResult = ((tmb * 1.2) - tmb);
     this.props.handleChangeTmbInformations(this.state.tmbInformations);
+    this.props.scrollToExerciseQuestions();
   }
 
   render() {
