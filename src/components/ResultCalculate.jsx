@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import './ResultCalculate.css';
+import increaseIcon from '../images/increase_icon.png';
+import keepIcon from '../images/keep_icon.png';
+import decreaseIcon from '../images/decrease_icon.png';
 
 export default class ResultCalculateComponent extends Component {
 
@@ -25,20 +28,20 @@ export default class ResultCalculateComponent extends Component {
         }
       }
     };
-
-    this.calculateResults();
   }
 
   calculateResults() {
     if (this.state.tmbInformations.tmbResult) {
-      this.state.resultCalculate.increase.min = this.state.tmbInformations.tmbResult - 100;
-      this.state.resultCalculate.increase.max = this.state.tmbInformations.tmbResult + 100;
+      var totalCalories = this.state.tmbInformations.tmbResult + this.state.tmbInformations.exerciseResult;
 
-      this.state.resultCalculate.decrease.min = this.state.tmbInformations.tmbResult - 200;
-      this.state.resultCalculate.decrease.max = this.state.tmbInformations.tmbResult + 200;
+      this.state.resultCalculate.decrease.min = (totalCalories - 500).toFixed(2);
+      this.state.resultCalculate.decrease.max = (totalCalories - 200).toFixed(2);
 
-      this.state.resultCalculate.keep.min = this.state.tmbInformations.tmbResult - 300;
-      this.state.resultCalculate.keep.max = this.state.tmbInformations.tmbResult + 300;
+      this.state.resultCalculate.keep.min = (totalCalories - 100).toFixed(2);
+      this.state.resultCalculate.keep.max = (totalCalories).toFixed(2);
+
+      this.state.resultCalculate.increase.min = (totalCalories + 100).toFixed(2);
+      this.state.resultCalculate.increase.max = (totalCalories + 500).toFixed(2);
     }
   }
 
@@ -56,26 +59,37 @@ export default class ResultCalculateComponent extends Component {
           <div id="informations-panel" className="informations-panel">
             <Paper 
               elevation={5}
-              className="card-information">Perder
-
-              {this.state.resultCalculate.increase.min}
-              {this.state.resultCalculate.increase.max}
+              className="card-information">
+              <div className="title-card-information text-shadow">Perder peso</div>
+              <div className="result-card-information text-shadow">
+                {this.state.resultCalculate.decrease.min} até {this.state.resultCalculate.decrease.max} calorias
+              </div>
+              
+              <img className="image-card-information" src={decreaseIcon}/>
+              <div className="descryption-card-information">Perca de 0,5kg a 1kg por semana</div>
             </Paper>
-
             <Paper 
               elevation={5}
-              className="card-information">Manter
+              className="card-information">
+              <div className="title-card-information text-shadow">Manter peso</div>
+              <div className="result-card-information text-shadow">
+                {this.state.resultCalculate.keep.min} até {this.state.resultCalculate.keep.max} calorias
+              </div>
 
-              {this.state.resultCalculate.decrease.min}
-              {this.state.resultCalculate.decrease.max}
-              </Paper>
+              <img className="image-card-information" src={keepIcon}/>
+              <div className="descryption-card-information">Mantenha o peso</div>
+            </Paper>
             <Paper 
               elevation={5}
-              className="card-information">Ganhar
+              className="card-information">
+              <div className="title-card-information text-shadow">Ganhar peso</div>
+              <div className="result-card-information text-shadow">
+                {this.state.resultCalculate.increase.min} até {this.state.resultCalculate.increase.max} calorias
+              </div>
 
-              {this.state.resultCalculate.keep.min}
-              {this.state.resultCalculate.keep.max}
-              </Paper>
+              <img className="image-card-information" src={increaseIcon}/>
+              <div className="descryption-card-information">Ganhe de 0,5kg a 1kg por semana</div>
+            </Paper>
           </div>
         </div>
       </React.Fragment>

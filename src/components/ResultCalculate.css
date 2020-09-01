@@ -14,8 +14,32 @@
 .card-information {
     width: 30vh;
     height: 30vh;
-    border-color: #F37361 !important;
     color: #ffffff !important;
     background-color: #282C34 !important;
     margin: 5vh 5vh 5vh 5vh;
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+
+.image-card-information {
+    width: 20vh;
+    height: 20vh;
+    margin-top: -50px;
+    opacity: 0.3;
+}
+
+.descryption-card-information {
+    font-size: small;
+}
+
+.result-card-information {
+    margin-top: 10px;
+    font-size: large;
+}
+
+.title-card-information {
+    margin-top: 10px;
+}
+
+.text-shadow {
+    text-shadow: 3px 3px rgba(0,0,0,0.4);
 }

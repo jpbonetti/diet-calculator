@@ -55,6 +55,7 @@ export default class ExerciseComponent extends Component {
 
     this.props.handleChangeTmbInformations(this.state.tmbInformations);
     this.props.scrollToResultCalculate();
+    this.props.calculateResults();
   }
 
   resetAllStateButtons() {
@@ -67,7 +68,7 @@ export default class ExerciseComponent extends Component {
   scrollToExerciseQuestion() {
     var scrollButtonsGroup = document.getElementById('exercise-buttons-group').offsetTop;
     scrollButtonsGroup = scrollButtonsGroup - (scrollButtonsGroup * 0.3);
-    
+
     window.scrollTo({ top: scrollButtonsGroup, behavior: 'smooth'});
   }
 

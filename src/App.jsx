@@ -33,6 +33,10 @@ export default function App() {
     resultCalculateComponent.current.scrollToResultCalculate();
   }
 
+  const calculateResults = () => {
+    resultCalculateComponent.current.calculateResults();
+  }
+
   return (
     <form noValidate autoComplete="off">
       <div className="App">
@@ -57,7 +61,8 @@ export default function App() {
                 ref={exerciseQuestionsComponent}
                 dietInformations={dietInformations}
                 scrollToResultCalculate={scrollToResultCalculate}
-                handleChangeTmbInformations={handleChangeTmbInformations}>
+                handleChangeTmbInformations={handleChangeTmbInformations}
+                calculateResults={calculateResults}>
               </ExerciseComponent>
 
               <ResultCalculateComponent
