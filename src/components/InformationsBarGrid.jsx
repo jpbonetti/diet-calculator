@@ -19,7 +19,7 @@ export default class InformationsBarGridComponent extends Component {
         <Grid item>
           <Paper 
             className="paper-tmb-informations">
-              TAXA DE METABOLISMO BASAL: {this.state.tmbInformations.tmbResult + this.state.tmbInformations.exerciseResult} KCAL
+              TAXA DE METABOLISMO BASAL: {(this.state.tmbInformations.tmbResult + this.state.tmbInformations.exerciseResult).toFixed(2)} KCAL
           </Paper>
         </Grid>
       </React.Fragment>

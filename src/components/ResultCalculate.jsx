@@ -66,7 +66,7 @@ export default class ResultCalculateComponent extends Component {
               </div>
               
               <img className="image-card-information" src={decreaseIcon}/>
-              <div className="descryption-card-information">Essa janela de calorias permite que você perca de 0,5kg por semana</div>
+              <div className="descryption-card-information">Essa janela de calorias permite que você perca de 0,5kg a 1kg por semana</div>
             </Paper>
             <Paper 
               elevation={5}
@@ -88,7 +88,7 @@ export default class ResultCalculateComponent extends Component {
               </div>
 
               <img className="image-card-information" src={increaseIcon}/>
-              <div className="descryption-card-information">Essa janela de calorias permite que você ganhe até 0,5kg por semana</div>
+              <div className="descryption-card-information">Essa janela de calorias permite que você ganhe de 0,5kg a 1kg por semana</div>
             </Paper>
           </div>
         </div>
